@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an axios instance with base URL and default headers
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://portfolio-mern-c2d3.onrender.com',
+  baseURL: import.meta.env.VITE_API_URL || 'https://portfolio-mern-c2d3.onrender.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
