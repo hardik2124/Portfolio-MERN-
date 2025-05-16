@@ -23,10 +23,17 @@ console.log('Using Cloudinary for image storage');
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+const allowedOrigins = ['https://portfolio-mern-eosin.vercel.app'];
+
 app.use(cors({
-  origin: 'https://your-frontend.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 app.use(morgan('dev'));
