@@ -86,11 +86,11 @@ const login = async (req, res) => {
     }
 
     // Generate token
-    const token = user.generateToken();
+    // const token = user.generateToken();
     
     // Save token to user document
-    user.token = token;
-    await user.save();
+    // user.token = token;
+    // await user.save();
     
     console.log(`User ${user.name} logged in successfully. Token generated.`);
 
@@ -104,7 +104,7 @@ const login = async (req, res) => {
         profileImage: user.profileImage,
         theme: user.theme,
       },
-      token,
+      // token,/
     });
   } catch (error) {
     console.error('Login error:', error);
